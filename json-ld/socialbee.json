@@ -1,0 +1,45 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "SocialBee",
+  "description": "SocialBee is an AI-powered social media management tool providing a REST-based platform API for managing content categories, scheduling and recycling evergreen posts, curating content from RSS sources, and accessing social media analytics across Facebook, Instagram, X (Twitter), LinkedIn, TikTok, Pinterest, YouTube, Threads, Bluesky, and Google Business Profiles.",
+  "url": "https://socialbee.com",
+  "applicationCategory": "BusinessApplication",
+  "applicationSubCategory": "Social Media Management",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://socialbee.com/pricing/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SocialBee",
+    "url": "https://socialbee.com",
+    "sameAs": [
+      "https://twitter.com/SocialBeeHQ",
+      "https://www.linkedin.com/company/socialbeehq/"
+    ]
+  },
+  "featureList": [
+    "Content scheduling and recycling",
+    "Evergreen content management",
+    "Content category management",
+    "RSS content curation",
+    "AI caption generation",
+    "Social media analytics",
+    "Multi-platform publishing",
+    "Zapier integration",
+    "Make integration",
+    "Pabbly integration"
+  ],
+  "softwareHelp": {
+    "@type": "CreativeWork",
+    "url": "https://help.socialbee.com/"
+  },
+  "releaseNotes": "https://changelog.socialbee.com/",
+  "availableOnDevice": "Web Browser",
+  "potentialAction": {
+    "@type": "UseAction",
+    "target": "https://app.socialbee.com"
+  }
+}

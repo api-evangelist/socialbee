@@ -1,0 +1,124 @@
+name: SocialBee Rate Limits
+description: Rate limits and usage constraints for the SocialBee platform and its integrations
+url: https://socialbee.com/pricing/
+notes: SocialBee does not currently offer a public REST API. Rate limits are expressed
+  in terms of platform-level usage constraints by plan tier, and via third-party automation
+  connectors (Zapier, Make, Pabbly).
+limits:
+  - scope: Social Accounts
+    description: Maximum number of social media profiles that can be connected per workspace
+    tiers:
+      - plan: Bootstrap
+        limit: 5
+        unit: profiles
+      - plan: Accelerate
+        limit: 10
+        unit: profiles
+      - plan: Pro
+        limit: 25
+        unit: profiles
+      - plan: Pro50
+        limit: 50
+        unit: profiles
+      - plan: Pro100
+        limit: 100
+        unit: profiles
+      - plan: Pro150
+        limit: 150
+        unit: profiles
+  - scope: Content Categories
+    description: Maximum number of content recycling categories per workspace
+    tiers:
+      - plan: Bootstrap
+        limit: 10
+        unit: categories
+      - plan: Accelerate
+        limit: 50
+        unit: categories
+      - plan: Pro
+        limit: unlimited
+        unit: categories
+  - scope: Content Sources
+    description: Maximum number of RSS/content sources for auto-importing posts
+    tiers:
+      - plan: Bootstrap
+        limit: 10
+        unit: sources
+      - plan: Accelerate
+        limit: 30
+        unit: sources
+      - plan: Pro
+        limit: unlimited
+        unit: sources
+  - scope: Users per Workspace
+    description: Maximum number of team members per workspace
+    tiers:
+      - plan: Bootstrap
+        limit: 1
+        unit: users
+      - plan: Accelerate
+        limit: 1
+        unit: users
+      - plan: Pro
+        limit: 3
+        unit: users
+      - plan: Pro50
+        limit: 5
+        unit: users
+      - plan: Pro100
+        limit: 5
+        unit: users
+      - plan: Pro150
+        limit: 5
+        unit: users
+  - scope: Workspaces
+    description: Maximum number of workspaces per account
+    tiers:
+      - plan: Bootstrap
+        limit: 1
+        unit: workspaces
+      - plan: Accelerate
+        limit: 1
+        unit: workspaces
+      - plan: Pro
+        limit: 5
+        unit: workspaces
+      - plan: Pro50
+        limit: 10
+        unit: workspaces
+      - plan: Pro100
+        limit: 20
+        unit: workspaces
+      - plan: Pro150
+        limit: 30
+        unit: workspaces
+  - scope: Analytics History
+    description: How far back analytics data is accessible
+    tiers:
+      - plan: Bootstrap
+        limit: 3
+        unit: months
+      - plan: Accelerate
+        limit: 24
+        unit: months
+      - plan: Pro
+        limit: 24
+        unit: months
+integrations:
+  - name: Zapier
+    description: Pre-built Zapier connector exposing one trigger and one action
+    triggers:
+      - name: Post Scheduled
+        description: Fires when a post is scheduled in a workspace
+    actions:
+      - name: Create Post
+        description: Creates a new post in a SocialBee workspace with optional media, scheduling, and YouTube-specific fields
+  - name: Make (formerly Integromat)
+    description: Pre-built Make connector for workflow automation
+  - name: Pabbly
+    description: Pre-built Pabbly connector for workflow automation
+publicApi:
+  available: false
+  notes: SocialBee does not currently offer a public REST API. A public API is on
+    their long-term roadmap but no specific timeline has been announced. Contact hello@socialbee.com
+    for API interest.

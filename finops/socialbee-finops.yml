@@ -1,0 +1,71 @@
+name: SocialBee FinOps
+description: Financial operations guidance for managing SocialBee subscription costs
+url: https://socialbee.com/pricing/
+summary: SocialBee uses a tiered SaaS subscription model with monthly or annual billing.
+  Cost optimization focuses on right-sizing the plan to actual social account count
+  and workspace needs, taking advantage of annual billing discounts, and using available
+  nonprofit or education discounts.
+billingModel:
+  type: subscription
+  cycles:
+    - monthly
+    - annual
+  currency: USD
+  paymentProcessor: FastSpring
+costDrivers:
+  - name: Number of Social Profiles
+    description: Primary cost driver — each plan tier is gated on connected social accounts
+    optimization: Audit connected profiles regularly and disconnect unused accounts
+      to stay on a lower tier
+  - name: Number of Workspaces
+    description: Additional workspaces beyond plan allowance cost $10/month each
+    optimization: Consolidate clients into fewer workspaces where feasible; upgrade
+      to agency plan if managing 10+ workspaces
+  - name: Number of Users
+    description: Additional users beyond plan allowance cost $10/month each
+    optimization: Assign only active team members; remove inactive users
+  - name: Billing Cycle
+    description: Monthly billing costs approximately 16% more than annual billing
+    optimization: Commit to annual billing after the 14-day trial to save ~16%
+savingsOpportunities:
+  - name: Annual Billing
+    saving: 16
+    unit: percent
+    description: Switch from monthly to annual billing for approximately 16% savings
+  - name: Nonprofit Discount
+    saving: 50
+    unit: percent
+    description: Eligible nonprofits receive 50% off with discount codes DOGOOD50 (monthly)
+      or DOGOOD50YEARLY (annual)
+  - name: Education Discount
+    saving: 50
+    unit: percent
+    description: Educational institutions receive 50% off with code EDU50YEARLY
+  - name: Free Trial
+    description: 14-day free trial requires no credit card — evaluate fully before committing
+planComparison:
+  - useCase: Solo creator or small business
+    recommendedPlan: Bootstrap
+    monthlyAnnual: 24
+    rationale: 5 profiles covers most individual use cases; upgrade if more profiles
+      or categories needed
+  - useCase: Growing team or content-heavy brand
+    recommendedPlan: Accelerate
+    monthlyAnnual: 40
+    rationale: 50 categories and 30 content sources suit active content recycling
+      strategies
+  - useCase: Multi-brand or small agency
+    recommendedPlan: Pro
+    monthlyAnnual: 82
+    rationale: 5 workspaces and 3 users per workspace enable client management
+  - useCase: Agency (11-50 clients)
+    recommendedPlan: Pro50
+    monthlyAnnual: 149
+    rationale: 10 workspaces and 50 profiles make agency client management scalable
+  - useCase: Large agency (51-100 clients)
+    recommendedPlan: Pro100
+    monthlyAnnual: 274
+    rationale: 20 workspaces and 100 profiles for larger agency portfolios
+moneyBackGuarantee:
+  days: 30
+  notes: 30-day money-back guarantee available on all paid plans

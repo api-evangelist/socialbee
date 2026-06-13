@@ -1,0 +1,123 @@
+name: SocialBee Plans and Pricing
+description: Pricing plans and features for SocialBee social media management platform
+url: https://socialbee.com/pricing/
+plans:
+  - name: Bootstrap
+    description: Entry-level plan for individuals managing a small number of social profiles
+    price:
+      monthly: 29
+      annual: 24
+      currency: USD
+    features:
+      - 5 social accounts
+      - 1 user per workspace
+      - 1 workspace
+      - 10 content categories
+      - 10 content sources
+      - Unlimited AI caption generation
+      - 3-month analytics history
+      - 14-day free trial
+  - name: Accelerate
+    description: Mid-tier plan with advanced analytics and content management features
+    price:
+      monthly: 49
+      annual: 40
+      currency: USD
+    features:
+      - 10 social accounts
+      - 1 user per workspace
+      - 1 workspace
+      - 50 content categories
+      - 30 content sources
+      - Unlimited AI caption generation
+      - 2-year analytics history
+      - Advanced analytics
+      - Hashtag organizer
+      - CSV uploads
+      - Post approval system
+      - 14-day free trial
+  - name: Pro
+    description: Professional plan for teams managing multiple workspaces and profiles
+    price:
+      monthly: 99
+      annual: 82
+      currency: USD
+    features:
+      - 25 social accounts
+      - 3 users per workspace
+      - 5 workspaces
+      - Unlimited content categories
+      - Unlimited content sources
+      - 2-year analytics history
+      - Export reports
+      - Internal notes
+      - Unlimited AI caption generation
+      - 14-day free trial
+  - name: Pro50
+    description: Agency plan for small agencies managing up to 50 profiles
+    price:
+      monthly: 179
+      annual: 149
+      currency: USD
+    features:
+      - 50 social accounts
+      - 5 users per workspace
+      - 10 workspaces
+      - All Pro features
+  - name: Pro100
+    description: Agency plan for medium agencies managing up to 100 profiles
+    price:
+      monthly: 329
+      annual: 274
+      currency: USD
+    features:
+      - 100 social accounts
+      - 5 users per workspace
+      - 20 workspaces
+      - All Pro features
+  - name: Pro150
+    description: Agency plan for large agencies managing up to 150 profiles
+    price:
+      monthly: 449
+      annual: 374
+      currency: USD
+    features:
+      - 150 social accounts
+      - 5 users per workspace
+      - 30 workspaces
+      - All Pro features
+addons:
+  - name: Additional User
+    price:
+      monthly: 10
+      annual: 8.33
+      currency: USD
+  - name: Additional Workspace
+    price:
+      monthly: 10
+      annual: 8.33
+      currency: USD
+  - name: 5 Additional Profiles
+    price:
+      monthly: 15
+      annual: 12.50
+      currency: USD
+discounts:
+  - name: Annual Billing
+    description: Save approximately 16% by paying annually
+    discount: 16
+    unit: percent
+  - name: Nonprofit Discount
+    description: 50% off for nonprofits with code DOGOOD50 (monthly) or DOGOOD50YEARLY (annual)
+    discount: 50
+    unit: percent
+  - name: Education Discount
+    description: 50% off for educational institutions with code EDU50YEARLY
+    discount: 50
+    unit: percent
+trial:
+  days: 14
+  creditCardRequired: false
+guarantee:
+  days: 30
+  type: money-back

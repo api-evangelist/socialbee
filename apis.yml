@@ -1,0 +1,73 @@
+aid: socialbee
+name: SocialBee
+description: SocialBee is an AI-powered social media management tool providing a
+  REST-based platform API for managing content categories, scheduling and recycling
+  evergreen posts, curating content from RSS sources, and accessing social media analytics
+  across Facebook, Instagram, X (Twitter), LinkedIn, TikTok, Pinterest, YouTube,
+  Threads, Bluesky, and Google Business Profiles. Third-party automation is available
+  via Zapier, Make, and Pabbly connectors; a public REST API is on the long-term roadmap.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/socialbee/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - Social Media Management
+  - Content Scheduling
+  - Content Recycling
+  - Social Media Analytics
+  - AI Caption Generation
+apis:
+  - aid: socialbee:socialbee-api
+    name: SocialBee API
+    description: SocialBee platform API for managing social media posts, content categories,
+      scheduling, recycling evergreen content, and accessing analytics across major
+      social networks. Currently accessible via Zapier, Make, and Pabbly automation
+      connectors; a public REST API is planned for the future.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://socialbee.com
+    baseURL: https://app.socialbee.com
+    tags:
+      - Social Media
+      - Content Scheduling
+      - Content Recycling
+      - Analytics
+    properties:
+      - type: Documentation
+        url: https://help.socialbee.com/
+      - type: Integrations
+        url: https://socialbee.com/integrations/
+      - type: ZapierIntegration
+        url: https://zapier.com/apps/socialbee/integrations
+      - type: Pricing
+        url: https://socialbee.com/pricing/
+      - type: StatusPage
+        url: https://status.socialbee.com/
+      - type: ChangeLog
+        url: https://changelog.socialbee.com/
+common:
+  - type: Website
+    url: https://socialbee.com
+  - type: Documentation
+    url: https://help.socialbee.com/
+  - type: GitHubOrg
+    url: https://github.com/SocialBee
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/socialbeehq/
+  - type: Blog
+    url: https://socialbee.com/blog/
+  - type: Pricing
+    url: https://socialbee.com/pricing/
+  - type: StatusPage
+    url: https://status.socialbee.com/
+  - type: X
+    url: https://twitter.com/SocialBeeHQ
+  - type: Plans
+    url: plans/socialbee-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/socialbee-rate-limits.yml
+  - type: FinOps
+    url: finops/socialbee-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

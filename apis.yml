@@ -6,7 +6,7 @@ description: SocialBee is an AI-powered social media management tool providing a
   across Facebook, Instagram, X (Twitter), LinkedIn, TikTok, Pinterest, YouTube,
   Threads, Bluesky, and Google Business Profiles. Third-party automation is available
   via Zapier, Make, and Pabbly connectors; a public REST API is on the long-term roadmap.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/socialbee/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -24,7 +24,7 @@ apis:
       scheduling, recycling evergreen content, and accessing analytics across major
       social networks. Currently accessible via Zapier, Make, and Pabbly automation
       connectors; a public REST API is planned for the future.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://socialbee.com
     baseURL: https://app.socialbee.com
     tags:

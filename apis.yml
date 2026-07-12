@@ -46,6 +46,10 @@ apis:
       - type: ChangeLog
         url: https://changelog.socialbee.com/
 common:
+  - type: VulnerabilityDisclosure
+    url: security/socialbee-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/socialbee-domain-security.yml
   - type: Website
     url: https://socialbee.com
   - type: Documentation

@@ -1,11 +1,16 @@
 aid: socialbee
 name: SocialBee
-description: SocialBee is an AI-powered social media management tool providing a
-  REST-based platform API for managing content categories, scheduling and recycling
-  evergreen posts, curating content from RSS sources, and accessing social media analytics
-  across Facebook, Instagram, X (Twitter), LinkedIn, TikTok, Pinterest, YouTube,
-  Threads, Bluesky, and Google Business Profiles. Third-party automation is available
-  via Zapier, Make, and Pabbly connectors; a public REST API is on the long-term roadmap.
+description: SocialBee is an AI-powered social media management platform for creating,
+  scheduling, recycling and analyzing content across Facebook, Instagram, X (Twitter),
+  LinkedIn, TikTok, Pinterest, YouTube, Threads, Bluesky and Google Business Profiles,
+  built around content categories and evergreen post recycling with AI caption generation.
+  SocialBee publishes NO public REST API — its own help center states a public API is on
+  the long-term roadmap with no committed timeline, and programmatic access is brokered
+  through Zapier, Make and Pabbly connectors. It does, however, operate an undocumented
+  but fully standards-discoverable Model Context Protocol server at
+  socialbee.com/wp-json/mcp/mcp-oauth-server, guarded by OAuth 2.1 with PKCE and
+  advertised via RFC 8414 and RFC 9728 metadata under /.well-known/. SocialBee was
+  acquired by WebPros in August 2024.
 accessModel:
   pricing: paid
   onboarding: unknown
@@ -21,7 +26,7 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/socialbee.png
 url: https://raw.githubusercontent.com/api-evangelist/socialbee/refs/heads/main/apis.yml
 created: '2026-06-13'
-modified: '2026-06-13'
+modified: '2026-08-13'
 specificationVersion: '0.19'
 tags:
   - Social Media Management
@@ -29,6 +34,10 @@ tags:
   - Content Recycling
   - Social Media Analytics
   - AI Caption Generation
+  - Social Media Publishing
+  - Model Context Protocol
+  - Marketing Automation
+  - SaaS
 apis:
   - aid: socialbee:socialbee-api
     name: SocialBee API
@@ -57,6 +66,34 @@ apis:
         url: https://status.socialbee.com/
       - type: ChangeLog
         url: https://changelog.socialbee.com/
+  - aid: socialbee:socialbee-mcp
+    name: SocialBee MCP Server
+    description: Undocumented but live first-party Model Context Protocol server mounted
+      in the WordPress REST namespace of socialbee.com. Discoverable entirely through
+      standards — an RFC 9728 protected resource metadata document names the endpoint and
+      an RFC 8414 authorization server metadata document describes the OAuth 2.1
+      authorization code + PKCE (S256) flow that guards it, with a single scope "mcp".
+      An anonymous JSON-RPC tools/list returns a well-formed MCP 401 (mcp_unauthorized),
+      confirming a real MCP implementation; the tool set itself is auth-gated and has not
+      been enumerated. Note this is an agent surface over the WordPress content property,
+      not over the SocialBee scheduling product.
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+    humanURL: https://socialbee.com
+    baseURL: https://socialbee.com/wp-json/mcp/mcp-oauth-server
+    tags:
+      - MCP
+      - Model Context Protocol
+      - Agent Surface
+      - OAuth
+    properties:
+      - type: MCPServer
+        url: mcp/socialbee-mcp.yml
+      - type: Authentication
+        url: authentication/socialbee-authentication.yml
+      - type: OAuthScopes
+        url: scopes/socialbee-scopes.yml
+      - type: ErrorCatalog
+        url: errors/socialbee-problem-types.yml
 common:
   - type: VulnerabilityDisclosure
     url: security/socialbee-vulnerability-disclosure.yml
@@ -66,8 +103,8 @@ common:
     url: https://socialbee.com
   - type: Documentation
     url: https://help.socialbee.com/
-  - type: GitHubOrg
-    url: https://github.com/SocialBee
+  - type: GitHubOrganization
+    url: https://github.com/SocialBee-Labs
   - type: LinkedIn
     url: https://www.linkedin.com/company/socialbeehq/
   - type: Blog
@@ -84,6 +121,47 @@ common:
     url: rate-limits/socialbee-rate-limits.yml
   - type: FinOps
     url: finops/socialbee-finops.yml
+  - type: MCPServer
+    url: mcp/socialbee-mcp.yml
+  - type: WellKnown
+    url: well-known/socialbee-well-known.yml
+  - type: SecurityTxt
+    url: well-known/socialbee-security.txt
+  - type: Security
+    url: security/socialbee-vulnerability-disclosure.yml
+  - type: Authentication
+    url: authentication/socialbee-authentication.yml
+  - type: OAuthScopes
+    url: scopes/socialbee-scopes.yml
+  - type: Conformance
+    url: conformance/socialbee-conformance.yml
+  - type: ErrorCatalog
+    url: errors/socialbee-problem-types.yml
+  - type: Lifecycle
+    url: lifecycle/socialbee-lifecycle.yml
+  - type: Conventions
+    url: conventions/socialbee-conventions.yml
+  - type: ChangeLog
+    url: changelog/socialbee-changelog.yml
+  - type: Packages
+    url: packages/socialbee-packages.yml
+  - type: LLMsTxt
+    url: llms/socialbee-llms.txt
+  - type: HelpCenter
+    url: https://help.socialbee.com/hc/en-us
+  - type: TermsOfService
+    url: https://socialbee.com/terms-of-service/
+  - type: PrivacyPolicy
+    url: https://socialbee.com/privacy-policy/
+  - type: Login
+    url: https://app.socialbee.com/login
+  - type: Integrations
+    url: https://socialbee.com/integrations/
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
+x-enrichment:
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v1

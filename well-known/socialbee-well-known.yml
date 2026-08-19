@@ -1,0 +1,94 @@
+generated: '2026-08-13'
+method: probed
+source: live HTTP probes of socialbee.com and app.socialbee.com
+name: SocialBee Well-Known Discovery Probe
+description: >-
+  Probe of RFC 8615 /.well-known/ paths across every SocialBee host named in
+  apis.yml. socialbee.com serves three real documents: an inherited WebPros
+  security.txt, an RFC 8414 OAuth 2.0 Authorization Server Metadata document,
+  and an RFC 9728 OAuth 2.0 Protected Resource Metadata document. The latter two
+  advertise a live Model Context Protocol server (scope "mcp") — see
+  mcp/socialbee-mcp.yml.
+
+hosts:
+  - host: socialbee.com
+    note: >-
+      WordPress marketing and content site. Serves the OAuth metadata pair that
+      fronts the MCP server. Unmatched /.well-known/* paths return HTTP 404 with
+      the WordPress 404 page, so a 404 here is a true negative.
+    paths:
+      - path: /.well-known/security.txt
+        status: 200
+        document: true
+        file: socialbee-security.txt
+        note: >-
+          Inherited from parent company WebPros; Canonical points at
+          https://webpros.com/.well-known/security.txt. Expires 2027-01-01.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        document: true
+        file: socialbee-oauth-authorization-server.json
+        note: >-
+          RFC 8414. issuer https://socialbee.com, authorization_code +
+          refresh_token, PKCE S256 required, scopes_supported ["mcp"],
+          client_id_metadata_document_supported true.
+      - path: /.well-known/oauth-protected-resource
+        status: 200
+        document: true
+        file: socialbee-oauth-protected-resource.json
+        note: >-
+          RFC 9728. Names the protected resource
+          https://socialbee.com/wp-json/mcp/mcp-oauth-server — the MCP endpoint.
+      - path: /.well-known/openid-configuration
+        status: 404
+        document: false
+      - path: /.well-known/api-catalog
+        status: 404
+        document: false
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        document: false
+      - path: /.well-known/agent-card.json
+        status: 404
+        document: false
+      - path: /.well-known/agent.json
+        status: 404
+        document: false
+
+  - host: app.socialbee.com
+    note: >-
+      Angular single-page application. It answers HTTP 200 with the same 84,730-byte
+      SPA HTML shell for arbitrary /.well-known/* paths, so a 200 from this host is
+      NOT evidence of a document. Every 200 below was inspected and is the SPA shell.
+    paths:
+      - path: /.well-known/openid-configuration
+        status: 200
+        document: false
+        note: SPA catch-all HTML shell, not a document. Treated as a miss.
+      - path: /.well-known/oauth-authorization-server
+        status: 200
+        document: false
+        note: SPA catch-all HTML shell, not a document. Treated as a miss.
+      - path: /.well-known/api-catalog
+        status: 200
+        document: false
+        note: SPA catch-all HTML shell, not a document. Treated as a miss.
+      - path: /.well-known/security.txt
+        status: 404
+        document: false
+      - path: /.well-known/ai-plugin.json
+        status: 404
+        document: false
+      - path: /.well-known/agent-card.json
+        status: 404
+        document: false
+      - path: /.well-known/agent.json
+        status: 404
+        document: false
+
+summary:
+  hosts_probed: 2
+  paths_probed: 15
+  real_documents: 3
+  soft_200_shells_rejected: 3
+  agent_card: false

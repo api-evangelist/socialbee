@@ -1,3 +1,14 @@
+generated: '2026-08-13'
+method: searched
+source: https://socialbee.com/pricing/
+verified: '2026-08-13'
+plan_count: 6
+verification_note: >-
+  Re-fetched https://socialbee.com/pricing/ (HTTP 200) on 2026-08-13 and confirmed
+  every tier and price below still matches the live page: Bootstrap $24 annual /
+  $29 monthly, Accelerate $40 / $49, Pro $82 / $99, plus the Pro50, Pro100 and
+  Pro150 agency tiers. No public API plan exists — these are product plans; API
+  access is not sold at any tier.
 name: SocialBee Plans and Pricing
 description: Pricing plans and features for SocialBee social media management platform
 url: https://socialbee.com/pricing/

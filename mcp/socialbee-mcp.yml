@@ -1,0 +1,110 @@
+generated: '2026-08-13'
+method: probed
+source: https://socialbee.com/.well-known/oauth-protected-resource
+name: SocialBee MCP Server
+description: >-
+  SocialBee operates a live, first-party Model Context Protocol server at
+  https://socialbee.com/wp-json/mcp/mcp-oauth-server. It is discoverable
+  entirely through standards: an RFC 9728 Protected Resource Metadata document
+  at /.well-known/oauth-protected-resource names the resource, and an RFC 8414
+  Authorization Server Metadata document at /.well-known/oauth-authorization-server
+  describes the OAuth 2.1 flow (authorization_code + PKCE S256) that guards it.
+  The endpoint answers JSON-RPC with a well-formed MCP error, confirming a real
+  MCP implementation rather than a generic 401.
+
+deployment:
+  mode: remote
+  endpoint: https://socialbee.com/wp-json/mcp/mcp-oauth-server
+  auth: oauth
+  verified: probed
+
+status: live
+
+ownership:
+  first_party: true
+  rationale: >-
+    The endpoint is served from socialbee.com, SocialBee's own registered domain,
+    and the authorization server metadata declares issuer "https://socialbee.com".
+    No third-party host or brand is involved.
+  caveat: >-
+    IMPORTANT SCOPE NOTE — the endpoint path is /wp-json/..., the WordPress REST
+    API namespace of SocialBee's marketing and content site. This is therefore an
+    MCP surface over the WordPress property, NOT over the SocialBee scheduling
+    product at app.socialbee.com. SocialBee's own help centre states the product
+    has no public REST API. Do not represent this server as programmatic access to
+    social-media scheduling until an authenticated introspection proves otherwise.
+
+transport:
+  protocol: JSON-RPC 2.0 over HTTP POST
+  accept: application/json, text/event-stream
+
+authorization:
+  scheme: OAuth 2.1 authorization code with PKCE
+  authorization_servers:
+    - https://socialbee.com
+  authorization_endpoint: https://socialbee.com/oauth/authorize
+  token_endpoint: https://socialbee.com/oauth/token
+  revocation_endpoint: https://socialbee.com/oauth/revoke
+  code_challenge_methods_supported:
+    - S256
+  grant_types_supported:
+    - authorization_code
+    - refresh_token
+  scopes_supported:
+    - mcp
+  bearer_methods_supported:
+    - header
+  token_endpoint_auth_methods_supported:
+    - none
+  client_registration:
+    dynamic_registration_endpoint: null
+    client_id_metadata_document_supported: true
+    note: >-
+      No RFC 7591 registration_endpoint is advertised. The server instead supports
+      Client ID Metadata Documents, where the client_id is an HTTPS URL resolving to
+      the client's own metadata document. Public clients only (auth method "none").
+
+tools:
+  status: gated
+  discovered: []
+  note: >-
+    tools/list could not be enumerated anonymously. A JSON-RPC tools/list POST
+    returned HTTP 401 with body
+    {"code":"mcp_unauthorized","message":"MCP authentication required.","data":{"status":401}}.
+    That MCP-specific error code is itself the strongest available evidence that a
+    real MCP server is mounted here. The live tool schemas require an authenticated
+    OAuth introspection pass. NO TOOL LIST IS RECORDED, because none was observed —
+    guessing one would fabricate the provider's agent surface.
+
+documentation:
+  published: false
+  note: >-
+    SocialBee publishes no documentation for this MCP server. It is not mentioned
+    in socialbee.com/llms.txt, on the integrations page, in the help centre, or in
+    the changelog. It was found only by probing the RFC 8414 / RFC 9728 metadata
+    pair. This is an undocumented but fully standards-discoverable agent surface.
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+    - url: https://socialbee.com/.well-known/oauth-protected-resource
+      method: GET
+      http_status: 200
+      result: >-
+        {"resource":"https://socialbee.com/wp-json/mcp/mcp-oauth-server",
+        "authorization_servers":["https://socialbee.com"],
+        "bearer_methods_supported":["header"],"scopes_supported":["mcp"]}
+    - url: https://socialbee.com/.well-known/oauth-authorization-server
+      method: GET
+      http_status: 200
+      result: RFC 8414 authorization server metadata, issuer https://socialbee.com
+    - url: https://socialbee.com/wp-json/mcp/mcp-oauth-server
+      method: POST
+      body: '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+      http_status: 401
+      result: '{"code":"mcp_unauthorized","message":"MCP authentication required.","data":{"status":401}}'
+
+related:
+  - well-known/socialbee-well-known.yml
+  - authentication/socialbee-authentication.yml
+  - scopes/socialbee-scopes.yml

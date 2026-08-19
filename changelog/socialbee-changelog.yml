@@ -1,0 +1,113 @@
+generated: '2026-08-13'
+method: searched
+source: https://changelog.socialbee.com/
+name: SocialBee Changelog
+description: >-
+  SocialBee publishes a dated public changelog at changelog.socialbee.com. It is
+  an incident-and-announcement feed for the hosted product — outages, fixes and
+  feature announcements — not an API version history. There are no version
+  numbers, no breaking-change notices and no deprecation entries, because there
+  is no public API contract to version.
+
+scheme: incident-and-announcement
+versioned: false
+current_version: null
+version_scheme_note: >-
+  No semantic, dated or header-based API versioning is published. Entries are
+  titled by subject and tagged Issue / Fix / Announcement.
+
+entry_types:
+  - Issue
+  - Fix
+  - Announcement
+
+entries:
+  - date: '2026-08-12'
+    type: Issue
+    title: TikTok posting issue
+    breaking: false
+    highlights:
+      - Posting to TikTok failing; cause under investigation.
+      - Attributed to an upstream TikTok API issue awaiting TikTok updates.
+  - date: '2026-07-28'
+    type: Fix
+    title: '[Fixed] Posting issues'
+    breaking: false
+    highlights:
+      - Scheduled post publishing failed 2026-07-27 19:00 to 2026-07-28 07:44 GMT+3.
+      - Root cause identified as an internal system issue; fix deployed.
+      - Posts scheduled during the window were not published retroactively.
+  - date: '2026-07-20'
+    type: Fix
+    title: '[Fixed] Mobile app issues'
+    breaking: false
+    highlights:
+      - SocialBee mobile app temporarily unavailable; functionality restored.
+  - date: '2026-07-20'
+    type: Fix
+    title: '[Fixed] Outage of the SocialBee API'
+    breaking: false
+    highlights:
+      - SocialBee's internal API was down from 2026-07-18 08:46 UTC to 2026-07-20 05:46 UTC.
+      - The outage took down the mobile app and external integrations including Zapier and Make.
+      - >-
+        Notable as the provider's own confirmation that a SocialBee API exists and
+        is the substrate under the mobile app and the automation connectors, even
+        though it is not offered publicly.
+  - date: '2026-06-29'
+    type: Fix
+    title: Hashtag generator issue
+    breaking: false
+    highlights:
+      - Post Editor hashtag generator degraded, then recovered; incident closed with continued monitoring.
+  - date: '2026-06-23'
+    type: Announcement
+    title: Meta Analytics Metrics Update
+    breaking: false
+    highlights:
+      - Facebook analytics "Impressions" replaced by "Views" in line with Meta's updated metrics.
+      - Automatic backfill, up to 24 hours from 2026-06-23.
+  - date: '2026-06-12'
+    type: Fix
+    title: '[Fixed] Temporary Service Interruption: Meta API Outage'
+    breaking: false
+    highlights:
+      - Upstream Meta API outage impacted publishing and analytics for Facebook, Instagram and Threads.
+  - date: '2026-05-19'
+    type: Fix
+    title: '[Fixed] Bluesky Posting Disruption'
+    breaking: false
+    highlights:
+      - Bluesky publishing affected by an upstream API outage; scheduled posts failed, were delayed or queued.
+  - date: '2026-05-16'
+    type: Fix
+    title: '[Fixed] X (Twitter) Posting Issues'
+    breaking: false
+    highlights:
+      - Posts to X (Twitter) failing for a large number of users; subsequently resolved.
+  - date: '2026-05-15'
+    type: Announcement
+    title: Scheduled Payment Platform Maintenance
+    breaking: false
+    highlights:
+      - Planned maintenance window announced for the payment platform.
+
+window:
+  from: '2026-05-15'
+  to: '2026-08-12'
+  entries_captured: 10
+  note: Recent window only; the feed extends further back.
+
+observations:
+  - >-
+    The dominant failure mode recorded is upstream social-network API instability
+    (TikTok, Meta, Bluesky, X) rather than SocialBee's own platform, which is the
+    structural risk of an aggregator.
+  - >-
+    No entry in the captured window mentions the MCP server at
+    socialbee.com/wp-json/mcp/mcp-oauth-server, reinforcing that it is undocumented.
+
+x-evidence:
+  fetched: '2026-08-13'
+  url: https://changelog.socialbee.com/
+  http_status: 200

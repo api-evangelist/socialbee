@@ -1,0 +1,79 @@
+# SocialBee
+
+SocialBee is an AI-powered social media management platform that helps businesses, agencies and creators create, schedule, publish, engage and analyze content across all major social networks from one unified dashboard.
+
+> Project Summary
+- **Project Name:** SocialBee
+- **Website:** https://socialbee.com/
+- **Category:** Social Media Management Software / AI-Powered Social Media Management Tool
+- **Primary Market:** Global (English-speaking)
+- **Target Audience:** Small businesses, marketing agencies, freelancers, entrepreneurs, content creators
+- **Core Offerings:** AI content creation, social media scheduling & publishing, engagement management, team collaboration, analytics & reporting
+- **Key Features:** AI Copilot, content categories, post recycling, evergreen scheduling, social inbox, team approval workflows, performance dashboards
+- **Integrations / Data Sources:** Native integrations with major social platforms; third-party tool integrations
+- **Use Cases:** Content planning & scheduling, AI-assisted content creation, social media analytics, team collaboration, brand consistency across channels
+- **Output Formats:** Dashboards, automated reports, exportable data
+- **Positioning:** All-in-one AI social media management suite and cost-effective alternative to enterprise tools
+- **Language / Regional Focus:** English-language platform serving a global audience
+
+SocialBee is an AI-powered social media management platform that helps businesses, agencies and creators create, schedule, publish, engage and analyze content across all major social networks from one unified dashboard.
+
+## Sitemap for SocialBee
+[XML Sitemap](https://socialbee.com/sitemap_index.xml): Contains all public and indexable URLs for SocialBee.
+
+## Products for Social Media Management
+- [Social Media Content Creation](https://socialbee.com/social-media-content-creation-tool/): Create, organize and recycle social media content with AI assistance and content category management for a consistent posting schedule.
+- [Social Media Publishing](https://socialbee.com/social-media-posting-tool/): Schedule and auto-publish posts across multiple social networks simultaneously from one central dashboard.
+- [Social Media Copilot](https://socialbee.com/ai-social-media-manager/): AI-powered assistant that helps plan, generate and optimize your entire social media strategy.
+- [Social Media Engagement](https://socialbee.com/social-media-engagement-tool/): Monitor and respond to comments, mentions and messages across all connected social profiles in one inbox.
+- [Social Media Collaboration](https://socialbee.com/social-media-collaboration-tool/): Manage team roles, content approval workflows and client collaboration without sharing login credentials.
+- [Social Media Analytics](https://socialbee.com/social-media-analytics-tool/): Track post performance, audience growth and engagement metrics with detailed reporting dashboards.
+- [Integrations](https://socialbee.com/integrations/): Connect SocialBee with Canva, Unsplash, Giphy, Zapier and other third-party tools.
+- [All Features](https://socialbee.com/features/): Complete overview of all SocialBee features.
+
+## Network Integrations for Social Media Platform
+- [Instagram](https://socialbee.com/instagram/): Manage feed posts, Reels, Stories and carousels for Instagram.
+- [Facebook](https://socialbee.com/facebook-post-scheduler/): Schedule and publish posts, images and videos to Facebook Pages and Groups.
+- [LinkedIn](https://socialbee.com/linkedin-post-scheduler/): Publish content to LinkedIn personal profiles and company pages.
+- [TikTok](https://socialbee.com/tiktok-post-scheduler/): Schedule and publish TikTok videos directly from SocialBee.
+- [Twitter / X](https://socialbee.com/twitter-post-scheduler/): Schedule tweets and threads for Twitter / X.
+- [Pinterest](https://socialbee.com/pinterest-scheduler-tool/): Create and schedule Pins to Pinterest boards.
+- [YouTube](https://socialbee.com/youtube-scheduler/): Publish and schedule YouTube videos and Shorts.
+- [Threads](https://socialbee.com/threads-post-scheduler/): Post and schedule content on Meta's Threads platform.
+- [Bluesky](https://socialbee.com/bluesky-post-scheduler/): Publish and schedule posts to Bluesky.
+- [Universal Posting](https://socialbee.com/universal-posting/): Post to platforms not natively supported via a universal posting workflow.
+
+## Primary Pages of SocialBee
+- [Home](https://socialbee.com/): Main landing page and product overview.
+- [Pricing](https://socialbee.com/pricing/): Subscription plans and pricing details for individuals, teams and agencies.
+- [Love / Testimonials](https://socialbee.com/love/): Customer reviews and success stories from SocialBee users.
+- [Privacy Policy](https://socialbee.com/privacy-policy/): Data privacy and user data handling policy.
+- [Terms of Service](https://socialbee.com/terms-of-service/): Terms and conditions for using SocialBee.
+
+## Support & Resources
+- [Resources](https://socialbee.com/resources/): Guides, tutorials and educational content for SocialBee users.
+- [Help Center](https://help.socialbee.com/hc/en-us): Searchable knowledge base and product documentation.
+- [Changelog](https://changelog.socialbee.com/): Latest product updates, new features and bug fixes.
+- [Product Roadmap](https://socialbee.com/roadmap/): Upcoming features and planned product improvements.
+- [Status Page](https://status.socialbee.com/): Real-time platform uptime and incident reports.
+
+## Migration Tools
+- [Migrate to SocialBee](https://socialbee.com/migrate/): Tools and guidance for switching from another social media management tool to SocialBee.
+
+## Free Tools to Help Social Media Management
+- [AI Post Generator](https://socialbee.com/ai-post-generator/): Free AI-powered tool to generate social media posts for any platform.
+- [Facebook Post Generator](https://socialbee.com/facebook-post-generator/): Free tool to generate ready-to-publish Facebook posts using AI.
+- [Instagram Caption Generator](https://socialbee.com/instagram-caption-generator/): Free AI tool for generating engaging Instagram captions.
+- [Tweet Generator](https://socialbee.com/tweet-generator/): Free tool to generate tweets and Twitter / X content with AI.
+- [TikTok Caption Generator](https://socialbee.com/tiktok-caption-generator/): Free AI-powered caption generator for TikTok videos.
+- [LinkedIn Post Generator](https://socialbee.com/linkedin-post-generator/): Free tool to generate professional LinkedIn posts using AI.
+
+## Blog About Social Media Marketing & More
+- [Blog Home](https://socialbee.com/blog/): All articles covering social media, marketing, branding and AI.
+- [Marketing](https://socialbee.com/blog/marketing/): Articles on marketing strategy, campaigns and best practices.
+- [Social Media](https://socialbee.com/blog/social-media/): Guides and tips for managing and growing social media presence.
+- [Branding](https://socialbee.com/blog/branding/): Content on building and maintaining a consistent brand identity online.
+- [Advertising](https://socialbee.com/blog/advertising/): Insights on paid social and digital advertising strategies.
+- [Customer Experience](https://socialbee.com/blog/customer-experience/): Articles focused on improving audience engagement and customer relationships.
+- [Tools](https://socialbee.com/blog/tools/): Reviews and comparisons of social media and marketing tools.
+- [AI](https://socialbee.com/blog/ai/): Coverage of AI trends and how artificial intelligence is shaping social media marketing.

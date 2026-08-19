@@ -1,0 +1,49 @@
+generated: '2026-08-13'
+method: probed
+source: https://socialbee.com/.well-known/oauth-authorization-server
+name: SocialBee OAuth Scopes
+description: >-
+  The complete published scope vocabulary for SocialBee's OAuth 2.1 authorization
+  server. Both the RFC 8414 authorization server metadata and the RFC 9728
+  protected resource metadata declare a single scope, "mcp". There is no scopes
+  or permissions reference page — SocialBee does not document this authorization
+  server at all, so the metadata document is the only source.
+docs: null
+
+scopes:
+  - name: mcp
+    description: >-
+      The only scope advertised by the authorization server. Grants access to the
+      Model Context Protocol server at
+      https://socialbee.com/wp-json/mcp/mcp-oauth-server. No finer-grained
+      scope vocabulary is published, so this is an all-or-nothing grant for the
+      MCP resource.
+    source: metadata
+    resource: https://socialbee.com/wp-json/mcp/mcp-oauth-server
+
+granularity:
+  level: coarse
+  read_write_split: false
+  resource_scoped: false
+  note: >-
+    A single opaque scope with no read/write or per-resource separation. An agent
+    cannot request least privilege: consenting to "mcp" consents to whatever the
+    server's full tool set does. Whether that set is read-only cannot be
+    determined without an authenticated tools/list.
+
+summary:
+  scope_count: 1
+  source_of_truth: RFC 8414 authorization server metadata
+  documented_by_provider: false
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+    - url: https://socialbee.com/.well-known/oauth-authorization-server
+      http_status: 200
+      field: scopes_supported
+      value: ["mcp"]
+    - url: https://socialbee.com/.well-known/oauth-protected-resource
+      http_status: 200
+      field: scopes_supported
+      value: ["mcp"]

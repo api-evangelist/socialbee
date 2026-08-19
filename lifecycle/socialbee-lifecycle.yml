@@ -1,0 +1,96 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://status.socialbee.com/, https://changelog.socialbee.com/,
+  https://help.socialbee.com/
+name: SocialBee API Lifecycle
+description: >-
+  Lifecycle, versioning, deprecation and operational-transparency posture for
+  SocialBee. SocialBee runs a status page and a dated changelog, but publishes no
+  API versioning policy, no deprecation policy and no SLA — which follows from
+  having no public API contract to govern.
+
+versioning:
+  policy_published: false
+  scheme: null
+  version_header: null
+  version_in_path: false
+  note: >-
+    No versioning policy is published. The undocumented MCP endpoint carries no
+    version segment in its path; the MCP protocol version would be negotiated in
+    the initialize handshake, which is auth-gated and could not be observed.
+
+deprecation:
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  rfc8594_compliant: false
+  advance_notice_period: null
+  deprecated_operations: []
+  note: >-
+    No deprecation policy, no notice period, and no evidence of RFC 8594
+    Sunset/Deprecation headers. No deprecated operations could be derived because
+    there is no OpenAPI in the repo.
+
+status_page:
+  published: true
+  url: https://status.socialbee.com/
+  http_status: 200
+  title: SocialBee Status
+  machine_readable: false
+  probes:
+    - url: https://status.socialbee.com/api/v2/status.json
+      http_status: 404
+    - url: https://status.socialbee.com/api/v2/summary.json
+      http_status: 404
+    - url: https://status.socialbee.com/history.rss
+      http_status: 404
+  note: >-
+    A human status page is served, but it is not Statuspage.io-compatible — the
+    standard /api/v2/status.json, /api/v2/summary.json and history.rss endpoints
+    all 404. There is no machine-readable uptime feed an agent could poll.
+
+changelog:
+  published: true
+  url: https://changelog.socialbee.com/
+  dated: true
+  artifact: changelog/socialbee-changelog.yml
+  scheme: incident-and-announcement
+  most_recent_entry: '2026-08-12'
+
+sla:
+  published: false
+  uptime_commitment: null
+  credits: null
+  note: No public SLA or uptime commitment was found.
+
+support:
+  email: success@socialbee.com
+  help_centre: https://help.socialbee.com/
+  api_enquiries: hello@socialbee.com
+  note: >-
+    help.socialbee.com is a Zendesk help centre fronted by a Cloudflare bot
+    challenge; it returns HTTP 403 "Just a moment..." to non-browser clients, so
+    its articles are not machine-readable.
+
+api_availability:
+  public_rest_api: false
+  provider_statement: >-
+    SocialBee's help centre article "Do you have a public API or white labeling
+    options?" states there is no public API; a public API is on the long-term
+    roadmap with no committed timeline, and API interest should be sent to
+    hello@socialbee.com.
+  internal_api_confirmed: true
+  internal_api_evidence: >-
+    The 2026-07-20 changelog entry "[Fixed] Outage of the SocialBee API" confirms
+    an internal API exists and underpins the mobile app plus the Zapier and Make
+    connectors.
+
+corporate:
+  parent: WebPros
+  acquired: '2024-08-20'
+  note: >-
+    SocialBee was acquired by WebPros (Luxembourg) on 2024-08-20. The consequence
+    visible in the artifacts is that vulnerability disclosure is now inherited
+    from the parent: socialbee.com/.well-known/security.txt is canonical to
+    webpros.com and routes to security@webpros.com.

@@ -1,3 +1,17 @@
+generated: '2026-08-13'
+method: searched
+source: https://socialbee.com/pricing/
+verified: '2026-08-13'
+limit_count: 0
+runtime_headers: []
+limit_note: >-
+  ZERO published API rate limits. SocialBee has no public REST API, so there are
+  no per-key or per-endpoint request limits, no documented window or burst, no
+  X-RateLimit-* / RateLimit-* / Retry-After response headers, and no documented
+  status code on exhaustion. No rate-limit headers were observed on any probed
+  response. Everything recorded below is a PRODUCT QUOTA by plan tier (profiles,
+  categories, sources, users, workspaces, analytics retention), not a runtime API
+  rate-limit signal an agent could react to. Recorded as an honest zero.
 name: SocialBee Rate Limits
 description: Rate limits and usage constraints for the SocialBee platform and its integrations
 url: https://socialbee.com/pricing/

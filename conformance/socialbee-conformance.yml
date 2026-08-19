@@ -1,0 +1,131 @@
+generated: '2026-08-13'
+method: probed
+source: >-
+  https://socialbee.com/.well-known/oauth-authorization-server,
+  https://socialbee.com/.well-known/oauth-protected-resource,
+  https://socialbee.com/.well-known/security.txt,
+  https://socialbee.com/wp-json/mcp/mcp-oauth-server
+name: SocialBee Standards Conformance
+description: >-
+  Cross-cutting standards assertions for SocialBee. Every "true" below is anchored
+  to a document fetched from a SocialBee host with the status code recorded.
+  SocialBee's conformance profile is narrow but genuine: it implements the modern
+  OAuth discovery stack correctly in service of an MCP server, and nothing else.
+
+conformance:
+  - id: oauth2
+    name: OAuth 2.0 / 2.1 Authorization Code with PKCE
+    conforms: true
+    evidence: >-
+      RFC 8414 metadata at /.well-known/oauth-authorization-server (HTTP 200)
+      declares authorization_code and refresh_token grants,
+      code_challenge_methods_supported ["S256"], and response_types ["code"].
+      Public-client profile (token_endpoint_auth_methods_supported ["none"]) with
+      mandatory PKCE is the OAuth 2.1 shape.
+
+  - id: rfc8414
+    name: OAuth 2.0 Authorization Server Metadata
+    conforms: true
+    evidence: >-
+      https://socialbee.com/.well-known/oauth-authorization-server returns HTTP 200
+      application/json with issuer, authorization_endpoint, token_endpoint,
+      revocation_endpoint, response_types_supported, grant_types_supported,
+      code_challenge_methods_supported and scopes_supported.
+
+  - id: rfc9728
+    name: OAuth 2.0 Protected Resource Metadata
+    conforms: true
+    evidence: >-
+      https://socialbee.com/.well-known/oauth-protected-resource returns HTTP 200
+      naming resource https://socialbee.com/wp-json/mcp/mcp-oauth-server,
+      authorization_servers ["https://socialbee.com"], bearer_methods_supported
+      ["header"] and scopes_supported ["mcp"].
+
+  - id: rfc7636
+    name: PKCE (Proof Key for Code Exchange)
+    conforms: true
+    evidence: >-
+      code_challenge_methods_supported ["S256"] in the authorization server
+      metadata. S256 only — the insecure "plain" method is not offered.
+
+  - id: mcp
+    name: Model Context Protocol
+    conforms: partial
+    evidence: >-
+      A live MCP server responds at
+      https://socialbee.com/wp-json/mcp/mcp-oauth-server. An anonymous JSON-RPC
+      tools/list POST returns HTTP 401 with the MCP-specific error body
+      {"code":"mcp_unauthorized",...}, proving a real MCP implementation. Marked
+      partial rather than true because the capability set could not be enumerated
+      without credentials and the provider publishes no MCP documentation.
+
+  - id: rfc9116
+    name: security.txt
+    conforms: true
+    evidence: >-
+      https://socialbee.com/.well-known/security.txt returns HTTP 200 with
+      Contact, Canonical, Encryption, Expires (2027-01-01T11:59:00Z) and
+      Preferred-Languages. Canonical points at parent company webpros.com.
+
+  - id: rfc8615
+    name: Well-Known URIs
+    conforms: true
+    evidence: >-
+      Three real documents served under /.well-known/ on socialbee.com. Recorded
+      in well-known/socialbee-well-known.yml.
+
+  - id: openapi
+    name: OpenAPI
+    conforms: false
+    evidence: >-
+      No OpenAPI document exists. Probed /openapi.json, /openapi.yaml,
+      /swagger.json, /v1/openapi.json, /api-docs and /docs across socialbee.com,
+      app.socialbee.com and api.socialbee.com. api.socialbee.com/openapi.json
+      returns HTTP 200 but the body is an HTML login page titled "API | Login into
+      SocialBee", not a specification.
+
+  - id: asyncapi
+    name: AsyncAPI
+    conforms: false
+    evidence: No AsyncAPI document and no documented webhook or event surface.
+
+  - id: rfc9457
+    name: Problem Details for HTTP APIs
+    conforms: false
+    evidence: >-
+      The only observable error response, the MCP 401, uses a bespoke JSON
+      envelope {"code","message","data":{"status"}} with content-type
+      application/json, not application/problem+json.
+
+  - id: idempotency
+    name: Idempotency keys
+    conforms: false
+    evidence: No idempotency mechanism is documented or observable.
+
+  - id: pagination
+    name: Documented pagination
+    conforms: false
+    evidence: No public API contract in which pagination could be documented.
+
+  - id: a2a
+    name: A2A Agent Card
+    conforms: false
+    evidence: >-
+      /.well-known/agent-card.json and /.well-known/agent.json return HTTP 404 on
+      socialbee.com and HTTP 404 on app.socialbee.com. No agent card is served.
+
+compliance_programs:
+  published: false
+  certifications: []
+  note: >-
+    No trust centre, no named certifications (SOC 2, ISO 27001, PCI, HIPAA,
+    FedRAMP) and no compliance page were found. Probed socialbee.com/security/
+    (404), /trust/ (404), /gdpr/ (404) and trust.socialbee.com (no DNS). A privacy
+    policy is published at socialbee.com/privacy-policy/ (HTTP 200) but names no
+    certification programme.
+
+summary:
+  asserted: 12
+  conforms_true: 6
+  conforms_partial: 1
+  conforms_false: 5

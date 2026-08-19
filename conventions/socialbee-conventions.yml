@@ -1,0 +1,115 @@
+generated: '2026-08-13'
+method: probed
+source: >-
+  Live probes of socialbee.com OAuth metadata and the MCP endpoint; SocialBee
+  help centre position on public API availability.
+name: SocialBee API Conventions
+description: >-
+  Cross-cutting runtime semantics for SocialBee's only reachable programmatic
+  surface — the OAuth-gated MCP server. SocialBee has no public REST API, so most
+  REST conventions are genuinely not applicable rather than merely undocumented.
+  Every field below is marked with which of those two it is, because the
+  distinction matters: "n/a" is not a failing, "undocumented" is.
+
+auth:
+  style: OAuth 2.1 authorization code with PKCE (S256), bearer token in header
+  documented: false
+  discoverable: true
+  discovery: RFC 8414 + RFC 9728 metadata under /.well-known/
+  header: 'Authorization: Bearer <token>'
+  client_secret: false
+  note: >-
+    Discoverable but undocumented — the machine can find it, a human reading the
+    docs cannot. See authentication/socialbee-authentication.yml.
+
+idempotency:
+  supported: false
+  status: not-applicable
+  header: null
+  scope: null
+  retention: null
+  note: >-
+    No idempotency key mechanism. Not applicable in the REST sense as no public
+    REST API exists; MCP tool calls carry no idempotency semantics here and the
+    tool set is auth-gated.
+
+pagination:
+  style: null
+  status: not-applicable
+  params: []
+  response_fields: []
+  note: No public REST API in which pagination could be defined.
+
+field_expansion:
+  supported: false
+  status: not-applicable
+
+sparse_fieldsets:
+  supported: false
+  status: not-applicable
+
+metadata:
+  supported: false
+  status: not-applicable
+
+request_tracing:
+  request_id_header: null
+  status: undocumented
+  note: >-
+    No request-id or correlation-id header is documented, and none was observed
+    on the anonymous 401 from the MCP endpoint.
+
+versioning:
+  style: none
+  status: undocumented
+  note: >-
+    No version in path, header or media type. See
+    lifecycle/socialbee-lifecycle.yml.
+
+error_envelope:
+  format: bespoke-json
+  rfc9457: false
+  content_type: application/json
+  shape:
+    code: string machine-readable error slug
+    message: string human-readable message
+    data:
+      status: integer HTTP status repeated in the body
+  observed_example:
+    http_status: 401
+    body: '{"code":"mcp_unauthorized","message":"MCP authentication required.","data":{"status":401}}'
+  note: >-
+    The single observed error. Structured and machine-readable, but not RFC 9457
+    problem+json. See errors/socialbee-problem-types.yml.
+
+rate_limit_signaling:
+  headers_observed: []
+  status: undocumented
+  exhaustion_status_code: null
+  retry_after: false
+  note: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After headers were returned on probed
+    responses. Plan-tier quotas are documented as product limits, not as runtime
+    API signals — see rate-limits/socialbee-rate-limits.yml.
+
+content_negotiation:
+  request_content_type: application/json
+  accept: application/json, text/event-stream
+  protocol: JSON-RPC 2.0 over HTTP POST
+  note: Applies to the MCP endpoint. text/event-stream indicates streamable HTTP transport.
+
+bot_posture:
+  note: >-
+    Two SocialBee properties actively refuse non-browser clients, which shapes
+    what any agent or crawler can read: help.socialbee.com returns HTTP 403 with a
+    Cloudflare "Just a moment..." interstitial, and socialbee.com/wp-json/ returns
+    HTTP 403. The MCP endpoint under that same /wp-json/ prefix is exempt and
+    answers JSON normally.
+
+cross_links:
+  errors: errors/socialbee-problem-types.yml
+  lifecycle: lifecycle/socialbee-lifecycle.yml
+  authentication: authentication/socialbee-authentication.yml
+  rate_limits: rate-limits/socialbee-rate-limits.yml
+  scopes: scopes/socialbee-scopes.yml
+  mcp: mcp/socialbee-mcp.yml

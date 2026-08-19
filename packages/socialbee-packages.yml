@@ -1,0 +1,105 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  registry.npmjs.org, pypi.org, rubygems.org, crates.io, repo.packagist.org,
+  github.com/SocialBee-Labs, socialbee.com/integrations/
+name: SocialBee Client Packages
+description: >-
+  SocialBee publishes no first-party client SDK in any public package registry.
+  This is consistent with the provider's own position that there is no public
+  REST API to wrap. Recorded as a verified zero, not an unchecked gap.
+
+packages: []
+
+package_count: 0
+official_count: 0
+
+registries_searched:
+  - registry: npm
+    endpoint: https://registry.npmjs.org/
+    queries:
+      - socialbee
+      - socialbee-api
+      - socialbee-sdk
+      - '@socialbee/sdk'
+      - socialbee-mcp
+    result: 404 on every exact name
+  - registry: pypi
+    endpoint: https://pypi.org/pypi/<pkg>/json
+    queries:
+      - socialbee
+      - socialbee-api
+    result: 404
+  - registry: rubygems
+    endpoint: https://rubygems.org/api/v1/gems/<pkg>.json
+    queries:
+      - socialbee
+    result: 404
+  - registry: packagist
+    endpoint: https://repo.packagist.org/packages/socialbee/socialbee.json
+    result: 404
+  - registry: crates.io
+    endpoint: https://crates.io/api/v1/crates/socialbee
+    result: 403 (crates.io rejects non-browser agents; no package expected)
+
+rejected_candidates:
+  - name: socialbee-ui
+    registry: npm
+    version: 0.1.19
+    published: '2025-08-08'
+    official: false
+    url: https://www.npmjs.com/package/socialbee-ui
+    reason: >-
+      Surfaced by an npm text search for "socialbee" and self-describes as "A
+      reusable UI component library for SocialBee", but carries no repository
+      field, no homepage, and no link back to socialbee.com. First-party
+      provenance could not be established, so it is NOT counted as an official
+      SDK. Recorded here so a later run does not rediscover it and wrongly
+      credit it.
+
+source_repositories:
+  - name: bsky4j
+    org: SocialBee-Labs
+    url: https://github.com/SocialBee-Labs/bsky4j
+    language: Java
+    official: true
+    fork: true
+    upstream: uakihir0/bsky4j
+    license: MIT
+    version: null
+    published: null
+    last_pushed: '2024-05-01'
+    registry: null
+    note: >-
+      SocialBee's only public repository. It is a FORK of the third-party
+      uakihir0/bsky4j Bluesky/AT Protocol client for Java — a dependency they
+      consume to publish to Bluesky, not a SocialBee SDK they offer to
+      developers. No registry coordinates and no release; version/published are
+      null because there is nothing published to read. Last pushed 2024-05-01.
+
+github_org:
+  url: https://github.com/SocialBee-Labs
+  name: SocialBee
+  blog: https://socialbee.com
+  public_repos: 1
+  created: '2023-06-14'
+  note: >-
+    Identified as first-party by its profile blog field pointing at
+    socialbee.com. NOTE: the previously recorded pointer
+    https://github.com/SocialBee is a DIFFERENT and unrelated entity — a
+    personal user account created 2014-03-24 with one unrelated repo
+    ("organizing", last pushed 2014). That pointer has been corrected in
+    apis.yml.
+
+integration_surface:
+  note: >-
+    In place of SDKs, SocialBee ships maintained connectors on third-party
+    automation platforms. These are hosted integrations, not installable
+    packages, so they are not listed as packages.
+  connectors:
+    - name: Zapier
+      url: https://zapier.com/apps/socialbee/integrations
+    - name: Make
+      url: https://www.make.com/en/integrations/socialbee
+    - name: Pabbly
+      url: https://www.pabbly.com/connect/integrations/api-by-pabbly/socialbee/

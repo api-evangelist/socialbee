@@ -1,0 +1,64 @@
+generated: '2026-08-13'
+method: probed
+source: https://socialbee.com/wp-json/mcp/mcp-oauth-server
+name: SocialBee Error Catalog
+description: >-
+  Error catalog for SocialBee. There is no OpenAPI to derive 4xx/5xx responses
+  from and no published error reference, so this catalog contains only errors
+  actually observed on the wire. It is deliberately short: one entry, because one
+  error was observed.
+
+format: bespoke-json
+rfc9457: false
+content_type: application/json
+
+envelope:
+  fields:
+    - name: code
+      type: string
+      description: Machine-readable error slug.
+    - name: message
+      type: string
+      description: Human-readable message.
+    - name: data.status
+      type: integer
+      description: The HTTP status code, repeated inside the body.
+  note: >-
+    This is the WordPress REST API error envelope shape (code / message / data),
+    consistent with the MCP server being mounted in the WordPress /wp-json/
+    namespace.
+
+problem_types:
+  - code: mcp_unauthorized
+    http_status: 401
+    title: MCP authentication required
+    detail: Request to the MCP endpoint carried no valid OAuth bearer token.
+    remediation: >-
+      Complete the OAuth 2.1 authorization code + PKCE (S256) flow against
+      https://socialbee.com/oauth/authorize and https://socialbee.com/oauth/token,
+      requesting scope "mcp", then present the token as
+      "Authorization: Bearer <token>". Client identity uses a Client ID Metadata
+      Document; there is no client secret and no dynamic registration endpoint.
+    observed: true
+    observed_body: '{"code":"mcp_unauthorized","message":"MCP authentication required.","data":{"status":401}}'
+    source: https://socialbee.com/wp-json/mcp/mcp-oauth-server
+
+error_count: 1
+
+not_derived:
+  reason: no-openapi
+  note: >-
+    No OpenAPI document exists for SocialBee (see
+    conformance/socialbee-conformance.yml), so no 4xx/5xx responses could be
+    derived from a specification. No public error reference page is published
+    either. Additional error types certainly exist behind authentication; they are
+    not listed because they were not observed, and inventing them would fabricate
+    the provider's contract.
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+    - url: https://socialbee.com/wp-json/mcp/mcp-oauth-server
+      method: POST
+      http_status: 401
+      content_type: application/json

@@ -1,0 +1,82 @@
+generated: '2026-08-13'
+method: probed
+source: https://socialbee.com/.well-known/oauth-authorization-server
+name: SocialBee Authentication Profile
+description: >-
+  SocialBee publishes exactly one machine-readable authentication surface: an
+  RFC 8414 OAuth 2.0 Authorization Server Metadata document at
+  socialbee.com/.well-known/oauth-authorization-server. It guards the MCP server
+  at socialbee.com/wp-json/mcp/mcp-oauth-server. The SocialBee product API at
+  app.socialbee.com is not public and publishes no authentication documentation.
+
+schemes:
+  - id: socialbee_oauth_mcp
+    type: oauth2
+    flow: authorizationCode
+    description: >-
+      OAuth 2.1 authorization code flow with mandatory PKCE, protecting the MCP
+      server. Public clients only — the token endpoint advertises auth method
+      "none", so there is no client secret.
+    issuer: https://socialbee.com
+    authorization_endpoint: https://socialbee.com/oauth/authorize
+    token_endpoint: https://socialbee.com/oauth/token
+    revocation_endpoint: https://socialbee.com/oauth/revoke
+    response_types_supported:
+      - code
+    grant_types_supported:
+      - authorization_code
+      - refresh_token
+    code_challenge_methods_supported:
+      - S256
+    pkce_required: true
+    token_endpoint_auth_methods_supported:
+      - none
+    scopes:
+      - mcp
+    bearer_methods_supported:
+      - header
+    bearer_placement: 'Authorization: Bearer <token>'
+    client_registration:
+      dynamic_registration: false
+      client_id_metadata_document_supported: true
+      note: >-
+        No RFC 7591 registration_endpoint. Clients identify themselves with a
+        Client ID Metadata Document — an HTTPS client_id URL that resolves to the
+        client's own metadata.
+    protected_resources:
+      - https://socialbee.com/wp-json/mcp/mcp-oauth-server
+
+unauthenticated_error:
+  observed: true
+  http_status: 401
+  content_type: application/json
+  body: '{"code":"mcp_unauthorized","message":"MCP authentication required.","data":{"status":401}}'
+  note: >-
+    Observed on an anonymous JSON-RPC POST to the MCP endpoint. The response is a
+    JSON error envelope, not RFC 9457 problem+json.
+
+product_api:
+  public: false
+  host: app.socialbee.com
+  note: >-
+    app.socialbee.com and api.socialbee.com both exist and both require a session
+    login (api.socialbee.com returns an HTML page titled "API | Login into
+    SocialBee" for every path, including /openapi.json). SocialBee's help centre
+    states there is no public REST API. End-user automation is brokered through
+    Zapier, Make and Pabbly connectors, which hold the credentials themselves, so
+    no SocialBee auth scheme is exposed to the integrator.
+
+x-evidence:
+  fetched: '2026-08-13'
+  probes:
+    - url: https://socialbee.com/.well-known/oauth-authorization-server
+      http_status: 200
+      content_type: application/json
+    - url: https://socialbee.com/wp-json/mcp/mcp-oauth-server
+      http_status: 401
+      note: anonymous JSON-RPC tools/list
+    - url: https://api.socialbee.com/openapi.json
+      http_status: 200
+      note: >-
+        HTML login shell titled "API | Login into SocialBee", NOT an OpenAPI
+        document. Recorded so a future run does not re-trip on this soft 200.

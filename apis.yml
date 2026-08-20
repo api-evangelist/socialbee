@@ -35,6 +35,16 @@ tags:
   - Social Media Analytics
   - AI Caption Generation
   - Social Media Publishing
+  - MCP
+  - Marketing Automation
+  - Software-as-a-Service
+tags_raw:
+  - Social Media Management
+  - Content Scheduling
+  - Content Recycling
+  - Social Media Analytics
+  - AI Caption Generation
+  - Social Media Publishing
   - Model Context Protocol
   - Marketing Automation
   - SaaS
@@ -49,6 +59,11 @@ apis:
     humanURL: https://socialbee.com
     baseURL: https://app.socialbee.com
     tags:
+      - Social-Media
+      - Content Scheduling
+      - Content Recycling
+      - Analytics
+    tags_raw:
       - Social Media
       - Content Scheduling
       - Content Recycling
@@ -81,6 +96,10 @@ apis:
     humanURL: https://socialbee.com
     baseURL: https://socialbee.com/wp-json/mcp/mcp-oauth-server
     tags:
+      - MCP
+      - Agent Surface
+      - Authentication
+    tags_raw:
       - MCP
       - Model Context Protocol
       - Agent Surface

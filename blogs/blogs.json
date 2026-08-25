@@ -5,14 +5,17 @@
       "source": "https://socialbee.com/blog/feed/",
       "feed_url": "https://socialbee.com/blog/feed/",
       "title": "",
-      "saved": 9,
+      "saved": 0,
       "method": "feed"
     },
     {
       "source": "https://www.linkedin.com/company/socialbeehq/",
-      "error": "HTTPError"
+      "feed_url": "https://www.linkedin.com/company/socialbeehq/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-08-15T12:11:08Z",
-  "post_count": 66
+  "fetched": "2026-08-22T20:20:02Z",
+  "post_count": 73
 }

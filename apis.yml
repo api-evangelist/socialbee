@@ -11,6 +11,17 @@ description: SocialBee is an AI-powered social media management platform for cre
   socialbee.com/wp-json/mcp/mcp-oauth-server, guarded by OAuth 2.1 with PKCE and
   advertised via RFC 8414 and RFC 9728 metadata under /.well-known/. SocialBee was
   acquired by WebPros in August 2024.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: paid
   onboarding: unknown

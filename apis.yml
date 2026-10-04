@@ -49,6 +49,7 @@ tags:
   - MCP
   - Marketing Automation
   - Software-as-a-Service
+  - Scheduling
 tags_raw:
   - Social Media Management
   - Content Scheduling
@@ -59,6 +60,7 @@ tags_raw:
   - Model Context Protocol
   - Marketing Automation
   - SaaS
+  - Scheduling
 apis:
   - aid: socialbee:socialbee-api
     name: SocialBee API
@@ -70,7 +72,7 @@ apis:
     humanURL: https://socialbee.com
     baseURL: https://app.socialbee.com
     tags:
-      - Social-Media
+      - Social Media
       - Content Scheduling
       - Content Recycling
       - Analytics
@@ -79,6 +81,7 @@ apis:
       - Content Scheduling
       - Content Recycling
       - Analytics
+      - Social-Media
     properties:
       - type: Documentation
         url: https://help.socialbee.com/
@@ -124,6 +127,9 @@ apis:
         url: scopes/socialbee-scopes.yml
       - type: ErrorCatalog
         url: errors/socialbee-problem-types.yml
+    x-surface: platform-generated
+    x-platform: wordpress
+    x-platform-surface: mcp-plugin
 common:
   - type: VulnerabilityDisclosure
     url: security/socialbee-vulnerability-disclosure.yml

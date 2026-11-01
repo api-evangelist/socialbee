@@ -64,33 +64,125 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-SocialBee is an AI-powered social media management tool for scheduling, publishing, and recycling content across major social networks including Facebook, Instagram, X (Twitter), LinkedIn, TikTok, Pinterest, YouTube, Threads, Bluesky, and Google Business Profiles.
+SocialBee is an AI-powered social media management platform for creating, scheduling, recycling and analyzing content across Facebook, Instagram, X (Twitter), LinkedIn, TikTok, Pinterest, YouTube, Threads, Bluesky and Google Business Profiles, built around content categories and evergreen post recycling with AI caption generation. SocialBee publishes NO public REST API — its own help center states a public API is on the long-term roadmap with no committed timeline, and programmatic access is brokered through Zapier, Make and Pabbly connectors. It does, however, operate an undocumented but fully standards-discoverable Model Context Protocol server at socialbee.com/wp-json/mcp/mcp-oauth-server, guarded by OAuth 2.1 with PKCE and advertised via RFC 8414 and RFC 9728 metadata under /.well-known/. SocialBee was acquired by WebPros in August 2024.
 
-## Overview
+**Areas:** Social Media Management · Content Scheduling · Content Recycling · Social Media Analytics · AI Caption Generation · Social Media Publishing · MCP · Marketing Automation · Software-as-a-Service · Scheduling
 
-- **Website:** https://socialbee.com
-- **Documentation:** https://help.socialbee.com/
-- **Pricing:** https://socialbee.com/pricing/
-- **Status:** https://status.socialbee.com/
-- **Changelog:** https://changelog.socialbee.com/
-- **Blog:** https://socialbee.com/blog/
-- **X (Twitter):** https://twitter.com/SocialBeeHQ
-- **LinkedIn:** https://www.linkedin.com/company/socialbeehq/
-- **GitHub:** https://github.com/SocialBee
+## SocialBee on APIs.io
 
-## API
+Everything profiled for SocialBee is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/socialbee/](https://apis.io/providers/socialbee/)** — or go straight to one of the APIs or properties below.
 
-SocialBee does not currently offer a public REST API. Integration is available via:
+### APIs (2)
 
-- **Zapier:** https://zapier.com/apps/socialbee/integrations
-- **Make (formerly Integromat):** https://apps.make.com/socialbee
-- **Pabbly:** workflow automation connector
+- [SocialBee API](https://apis.io/apis/socialbee/socialbee-api/) — SocialBee platform API for managing social media posts, content categories, scheduling, recycling evergreen content, and accessing analytics across major…
+- [SocialBee MCP Server](https://apis.io/apis/socialbee/socialbee-mcp/) — Undocumented but live first-party Model Context Protocol server mounted in the WordPress REST namespace of socialbee.com. Discoverable entirely through…
 
-A public API is on SocialBee's long-term roadmap. For API inquiries contact hello@socialbee.com.
+### Published properties
 
-## Repository Contents
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- `apis.yml` — APIs.json 0.19 provider profile
-- `plans/socialbee-plans-pricing.yml` — Pricing tiers and plan features
-- `rate-limits/socialbee-rate-limits.yml` — Platform usage constraints by plan
-- `finops/socialbee-finops.yml` — Cost optimization and FinOps guidance
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [SocialBee MCP Server](https://apis.io/servers/socialbee/socialbee-mcp-server/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Socialbee Authentication](https://apis.io/security/socialbee/socialbee-authentication/)
+- [Socialbee Domain Security](https://apis.io/security/socialbee/socialbee-domain-security/)
+- [Socialbee Vulnerability Disclosure](https://apis.io/security/socialbee/socialbee-vulnerability-disclosure/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Socialbee Scopes](https://apis.io/scopes/socialbee/socialbee-scopes/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Socialbee Plans Pricing](https://apis.io/plans/socialbee/socialbee-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Socialbee Rate Limits](https://apis.io/rate-limits/socialbee/socialbee-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Socialbee Finops](https://apis.io/finops/socialbee/socialbee-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://socialbee.com)
+- [Documentation](https://help.socialbee.com/)
+- [Pricing](https://socialbee.com/pricing/)
+- [Blog](https://socialbee.com/blog/)
+- [Terms of service](https://socialbee.com/terms-of-service/)
+- [Privacy policy](https://socialbee.com/privacy-policy/)
+- [GitHub](https://github.com/SocialBee-Labs)
+- [Status](https://status.socialbee.com/)
+
+## API Evangelist rating
+
+**Kin Score 43.0** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 76.3 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 69.7 |
+
+**Agent readiness 10.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 40.2** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/socialbee/](https://apis.io/providers/socialbee/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for SocialBee: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/socialbee/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
